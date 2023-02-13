@@ -49,7 +49,15 @@ CREATE USER '${DB_USER}'@'%' IDENTIFIED by '${DB_PASS}';
 GRANT ALL PRIVILEGES ON wordpress.* TO '${DB_USER}'@'%';
 FLUSH PRIVILEGES;
 EOF
+
+	#pkill mysqld
         # run init.sql
         /usr/bin/mysqld --user=mysql --bootstrap < /tmp/create_db.sql
         rm -f /tmp/create_db.sql
+	#pkill mysqld
+	#/usr/bin/mysqld --user=root --datadir=/var/lib/mysql --bootstrap < /tmp/create_db.sql
+	#rm -f /tmp/create_db.sql
+	#pkill mysqld
+	#/usr/bin/mysqld --user=root --datadir=/var/lib/mysql
+
 fi

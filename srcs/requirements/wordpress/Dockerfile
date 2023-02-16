@@ -17,6 +17,7 @@ RUN apk update && apk upgrade && apk add --no-cache \
     php${PHP_VERSION}-xml \
     php${PHP_VERSION}-zip \
     php${PHP_VERSION}-redis \
+    php-phar \
     wget \
     unzip && \
     sed -i "s|listen = 127.0.0.1:9000|listen = 9000|g" \
@@ -37,12 +38,34 @@ RUN apk update && apk upgrade && apk add --no-cache \
 #    /etc/php8/php-fpm.d/www.conf \
 #    && rm -f /var/cache/apk/*
 
-WORKDIR /var/www
-RUN wget https://wordpress.org/latest.zip && \
-    unzip latest.zip && \
-    cp -rf wordpress/* . && \
-    rm -rf wordpress latest.zip
+
+
+WORKDIR /var/www/
+#RUN wget https://wordpress.org/latest.zip && \
+#    unzip latest.zip && \
+#    cp -rf wordpress/* . && \
+#    rm -rf wordpress latest.zipi
+
+RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar 
+
+RUN chmod +x wp-cli.phar
+
+RUN mv -f wp-cli.phar /usr/local/bin/wp
+
+RUN wp core download --allow-root --path="/var/www"
+
 COPY ./requirements/wordpress/conf/wp-config-create.sh .
-RUN sh wp-config-create.sh && rm wp-config-create.sh && \
-    chmod -R 0777 wp-content/
+RUN sh wp-config-create.sh && rm wp-config-create.sh
+
+
+#RUN wp core install --allow-root --url=$DOMAIN_NAME --title=$TITLE --admin_user=$ADMIN_USER --admin_password=$ADMIN_PASSWORD --admin_email=test@test.com --path="/var/www/"
+
+WORKDIR /var/www/wp-content
+
+RUN touch debug.log
+
+RUN chmod 666 debug.log
+
+WORKDIR /var/www
+
 CMD ["/usr/sbin/php-fpm8", "-F"]

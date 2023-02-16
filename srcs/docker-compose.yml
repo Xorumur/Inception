@@ -33,6 +33,8 @@ services:
     networks:
       - inception
     restart: always
+    volumes:
+      - db-volume:/var/www/html
 
   wordpress:
     build:
@@ -49,7 +51,7 @@ services:
     networks:
       - inception
     volumes:
-      - wp-volume:/var/www/
+      - wp-volume:/var/www
 
 volumes:
   wp-volume:

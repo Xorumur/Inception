@@ -8,6 +8,8 @@ Comme beaucoup j'ai suivi le tuto russe sur inception. Mais je me suis retrouvé
 
 Je vais vous montrer en quelques étapes comment j'ai réussi à fix le problème.
 
+(Le tuto russe en question : https://github-com.translate.goog/codesshaman/inception?_x_tr_sl=auto&_x_tr_tl=fr&_x_tr_hl=fr&_x_tr_pto=wapp)
+
 # 1er étape
 
 Qui dit aucune persistence des configurations dit problème de volume !

@@ -14,7 +14,7 @@ Qui dit aucune persistence des configurations dit problème de volume !
 
 Dans le tuto, le docker-compose manque 2 lignes qui semble pourtant assez évidente : 
 
-version: '3'
+```version: '3'
 
 services:
   nginx:
@@ -85,13 +85,13 @@ volumes:
 networks:
     inception:
         driver: bridge
-
+```
 
 # 2eme étape
 
 J'ai un peu trifouille pour trouver l'erreur sur wordpress et en voici mon Dockerfile ainsi modifié et commenté : 
 
-FROM alpine:3.16
+```FROM alpine:3.16
 ARG PHP_VERSION=8 \
     DB_NAME \
     DB_USER \
@@ -143,6 +143,7 @@ COPY ./requirements/wordpress/conf/wp-config-create.sh .
 RUN sh wp-config-create.sh && rm wp-config-create.sh
 
 CMD ["/usr/sbin/php-fpm8", "-F"]
+```
 
 Il y a une autre différence, dans le wp-config-create.sh j'ai rajouté quelques champs a vous de voir s'ils sont 
 nécessaire.

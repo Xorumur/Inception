@@ -4,7 +4,7 @@ Salut,
 
 Comme beaucoup j'ai suivi le tuto russe sur inception. Mais je me suis retrouvé devant un problème :
 - A chaque fois que je relancais mon docker je devais refaire la configuration de wordpress.
-- Ce problème engendre lui meme le fait que rien ne se sauvegarder.
+- Ce problème engendre lui meme le fait que rien ne se sauvegardais.
 
 Je vais vous montrer en quelques étapes comment j'ai réussi à fix le problème.
 

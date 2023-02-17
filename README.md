@@ -123,13 +123,14 @@ RUN apk update && apk upgrade && apk add --no-cache \
 
 WORKDIR /var/www/
 
-# Dans le tuto, il prend un zip avec la configuration de wordpress qu'il décompresse ensuite.
-# En galerant comme un rat mort, j'en suis venu à faire d'une façon différente : 
-# - Installe wp-cli, celle-ci nous donnes accès à la commande wp.
-# - On lui donne les droits d'executable.
-# - On la move dans un emplacement où donnés dans la variable d'environnement PATH (petit reminder de minishell).
-# - Et pour finir, grâce à la commande wp, on peut installer tout les fichiers de config wordpress nécessaire.
-# Pour les curieux : https://developer.wordpress.org/cli/commands/core/download/ (doc wp core download).
+ Dans le tuto, il prend un zip avec la configuration de wordpress qu'il décompresse ensuite.
+ En galerant comme un rat mort, j'en suis venu à faire d'une façon différente : 
+ - Installe wp-cli, celle-ci nous donnes accès à la commande wp.
+ - On lui donne les droits d'executable.
+ - On la move dans un emplacement où donnés dans la variable d'environnement PATH (petit reminder de minishell).
+ - Et pour finir, grâce à la commande wp, on peut installer tout les fichiers de config wordpress nécessaire.
+ Pour les curieux : https://developer.wordpress.org/cli/commands/core/download/ (doc wp core download).
+ 
 RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 
 RUN chmod +x wp-cli.phar

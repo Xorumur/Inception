@@ -34,7 +34,7 @@ services:
       - inception
     restart: always
     volumes:
-      - db-volume:/var/www/html
+      - db-volume:/var/lib/mysql
 
   wordpress:
     build:

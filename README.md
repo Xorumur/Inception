@@ -4,7 +4,7 @@ Salut,
 
 Comme beaucoup j'ai suivi le tuto russe sur inception. Mais je me suis retrouvé devant un problème :
 - A chaque fois que je relancais mon docker je devais refaire la configuration de wordpress.
-- Ce problème engendre lui meme le fait que rien ne se sauvegardais.
+- Ce problème engendre lui même le fait que rien ne se sauvegardais.
 
 Je vais vous montrer en quelques étapes comment j'ai réussi à fix le problème.
 
@@ -12,9 +12,9 @@ Je vais vous montrer en quelques étapes comment j'ai réussi à fix le problèm
 
 # 1er étape
 
-Qui dit aucune persistence des configurations dit problème de volume !
+Qui dit aucune persistence des données dit problème de volume !
 
-Dans le tuto, le docker-compose manque 2 lignes qui semble pourtant assez évidente : 
+Dans le tuto, le docker-compose il manque 2 lignes qui semble pourtant assez évidente : 
 
 ```version: '3'
 

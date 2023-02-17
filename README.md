@@ -134,7 +134,7 @@ WORKDIR /var/www/
 # - Et pour finir, grâce à la commande wp, 
 # on peut installer tout les fichiers de config wordpress nécessaire.
 # Pour les curieux : https://developer.wordpress.org/cli/commands/core/download/ 
-(doc wp core download).
+# (doc wp core download).
  
 RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 

@@ -126,7 +126,7 @@ RUN apk update && apk upgrade && apk add --no-cache \
 WORKDIR /var/www/
 
 # Dans le tuto, il prend un zip avec la configuration de wordpress qu'il décompresse ensuite.
-# En galerant comme un pas possible, j'en suis venu à faire d'une façon différente : 
+# En galerant comme pas possible, j'en suis venu à faire d'une façon différente : 
 # - Installe wp-cli, celle-ci nous donnes accès à la commande wp.
 # - On lui donne les droits d'executable.
 # - On la move dans un emplacement où donnés dans la variable d'environnement PATH 
